@@ -1,0 +1,46 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}图像水印{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+<h3>图像添加水印</h3>
+</div>
+
+<div class="col-md-9">
+<form method="POST" enctype="multipart/form-data">
+     {{ form.hidden_tag() }}
+     {{ form.photo }}
+      <!--在模板中渲染错误信息-->
+     {% for error in form.photo.errors %}
+         <span style="color: red;">{{ error }}</span>
+     {% endfor %}
+      <!--在模板中渲染错误信息-->
+     {{ form.submit }}
+</form>
+</div>
+<br>
+{% if file_url %}
+ <div class="col-sm-2 col-md-5">
+       <div class="thumbnail">
+            <img src={{ file_url }} style="width: 100%; display: block;"
+                 alt="需要添加水印的图片">
+    </div>
+   </div>
+<div class="col-sm-2 col-md-2">
+    <form action = "/watermark" method="post">
+{{wtf.quick_form(form1)}}
+    </form>
+</div>
+
+{% if mark_url %}
+ <div class="col-sm-2 col-md-5">
+       <div class="thumbnail">
+            <img src={{ mark_url }} style="width: 100%; display: block;"
+                 alt="添加水印后的图片">
+    </div>
+   </div>
+{% endif %}
+
+{% endif %}
+{% endblock %}

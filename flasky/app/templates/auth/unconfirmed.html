@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Flasky - Confirm your account{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+    <h1>Hello,{% if current_user.is_authenticated %}{{ current_user.username|capitalize }}{% else %}Stanger{% endif %}！</h1>
+    <h2>您还没有确认您的账户信息。</h2>
+    <p>为了您的账户安全，请您在邮箱中找到我们发给您的带有确认链接的邮件并点击确认。</p>
+    <br>
+    <p>需要重新发送吗？</p><a href="{{ url_for('auth.resend_confirmation') }}">点击这里</a>
+</div>
+{% endblock %}

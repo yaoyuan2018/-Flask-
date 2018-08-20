@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}关于天涯脱水机 - {{ super() }}{% endblock %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% import "_wtf4.html" as _wtf4 %}
+{% block page_content %}
+
+<div class="row comment-form" style="margin-top: 80px">
+<div class="col-lg-6 offset-lg-3">
+ <h3 class="panel-title">
+    <a href="#" ><i class="fa fa-pencil">&nbsp</i>留言板</a></h3>
+        {{ _wtf4.quick_form(form, form_type="basic ", button_map={'submit':'primary', } ) }}
+</div>
+</div>

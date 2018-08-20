@@ -1,0 +1,20 @@
+.album-frame,
+.album-frame:before {
+    background: transprent;
+    width: 265px;
+    height: 215px;
+    margin: 5px;
+    border: 3px solid #FFF;
+    box-shadow: 0 0 0 1px #999;
+    position: relative;
+}
+
+.album-frame:before {
+    margin: 0;
+    content: "";
+    position: absolute;
+    top: -7px;
+    left: -7px;
+    background: white;
+    z-index: -1;
+}

@@ -1,0 +1,57 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+{% block title %}天空风格转换{% endblock %}
+
+{% block page_content %}
+<div class="page-header">
+<h3>请选择图片</h3>
+</div>
+
+<div class="col-md-9">
+<form method="POST" enctype="multipart/form-data">
+     {{ form.hidden_tag() }}
+     {{ form.photo1 }}
+      <!--在模板中渲染错误信息-->
+     {% for error in form.photo1.errors %}
+         <span style="color: red;">{{ error }}</span>
+     {% endfor %}
+
+     {{ form.photo2 }}
+      <!--在模板中渲染错误信息-->
+     {% for error in form.photo2.errors %}
+         <span style="color: red;">{{ error }}</span>
+     {% endfor %}
+      <!--在模板中渲染错误信息-->
+     {{ form.submit }}
+</form>
+</div>
+
+<br>
+{% if file_url %}
+ <div class="col-sm-2 col-md-5">
+       <div class="thumbnail">
+            <img src={{ file_url }} style="width: 100%; display: block;"
+                 alt="需要添加水印的图片">
+    </div>
+   </div>
+
+{% if sky_url %}
+ <div class="col-sm-2 col-md-5">
+       <div class="thumbnail">
+            <img src={{ sky_url }} style="width: 100%; display: block;"
+                 alt="添加水印后的图片">
+    </div>
+   </div>
+{% endif %}
+
+{% if result %}
+ <div class="col-sm-2 col-md-5">
+       <div class="thumbnail">
+            <img src={{ result }} style="width: 100%; display: block;"
+                 alt="天空融合后的图片">
+    </div>
+   </div>
+{% endif %}
+
+{% endif %}
+{% endblock %}
