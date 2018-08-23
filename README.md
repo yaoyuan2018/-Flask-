@@ -1,6 +1,14 @@
 # Flask图像风格迁移平台
 包含图像裁剪、添加水印、添加滤镜、卡通化、图像天空风格替换等功能。
 
+
+运行方式：
+
+1、cmd进入项目文件'flasky'内
+2、输入venv\Scripts\activate
+3、进入虚拟环境后命令行开头显示(venv)，输入python manage.py runserver
+4、浏览器进入http://127.0.0.1:5000/  进入首页【CTRL+C可终止服务器运行】
+
 测试账号：
 ID：yy494818027@163.com
 Password:123456
